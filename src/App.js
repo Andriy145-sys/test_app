@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import PostList from "./components/PostList";
+import AddPostForm from "./components/AddPostForm";
+import './styles/App.css'
 function App() {
+
+  const [posts] = useState(
+    [
+      {
+        id: 1,
+        title: 'Javascript',
+        body: 'Javascript - programing language'
+      },
+      {
+        id: 2,
+        title: 'Python',
+        body: 'Python - programing language'
+      },
+      {
+        id: 3,
+        title: 'Python1',
+        body: 'Python - programing language'
+      }
+    ]
+  )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddPostForm />
+      <PostList posts={posts} title={'Posts lists'} />
     </div>
   );
 }
